@@ -10,7 +10,7 @@ const Form = () => {
     setUserName(e.target.value);
   }
 
-  const onChangeEmail = (e) => {    
+  const onChangeEmail = (e) => {
     setEmail(e.target.value);
   }
 
@@ -20,9 +20,14 @@ const Form = () => {
 
     const emailRegex = /\S+@\S+\.\S+/
     if (emailRegex.test(email)) {
-      alert(`Thank you: ${userName}, we will contact you as soon as possible via email`);
-      setEmail("")
-      setUserName("")
+      if (userName.length > 0) {
+        alert(`Thank you: ${userName}, we will contact you as soon as possible via email`);
+        setEmail("")
+        setUserName("")
+      }
+      else {
+        alert(`The user name should not be empty`);
+      }
     } else {
       alert(`Enter a valid email, please`);
     }
@@ -32,8 +37,8 @@ const Form = () => {
   return (
     <div>
       <form onSubmit={onSubmitForm}>
-        <input type="text" placeholder="User name" value={userName} onChange={onChangeUserName}/>
-        <input type="text" placeholder="Email" value={email} onChange={onChangeEmail}/>
+        <input type="text" placeholder="User name" value={userName} onChange={onChangeUserName} />
+        <input type="text" placeholder="Email" value={email} onChange={onChangeEmail} />
         <button type="submit">Send</button>
       </form>
     </div>

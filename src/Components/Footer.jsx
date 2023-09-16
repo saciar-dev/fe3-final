@@ -3,12 +3,12 @@ import { useContextGlobal } from './utils/global.context'
 
 const Footer = () => {
 
-  const {state} = useContextGlobal()
+  const { state } = useContextGlobal()
 
   return (
     <footer className={state.theme ? 'dark' : 'light'}>
-        <p>Powered by</p>
-        <img src="./images/DH.png" alt='DH-logo' />
+      <p>Powered by</p>
+      <img src="./images/DH.png" alt='DH-logo' />
     </footer>
   )
 }
